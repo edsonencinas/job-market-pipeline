@@ -177,8 +177,8 @@ with col2:
     st.subheader("🌍 Remote vs On-Site")
     remote_df = load_remote_ratio(since)
     if not remote_df.empty:
-        remote_df["label"] = remote_df["is_remote"].map(
-            {True: "Remote", False: "On-Site", 1: "Remote", 0: "On-Site"}
+        remote_df["label"] = remote_df["is_remote"].apply(
+            lambda x: "Remote" if int(x) == 1 else "On-Site"
         )
         fig = px.pie(
             remote_df,
