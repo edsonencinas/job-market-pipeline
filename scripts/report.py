@@ -38,4 +38,3 @@ def run(days_back: int = 30) -> None:
 if __name__ == "__main__":
     logging.basicConfig(level=logging.INFO)
     run()
-EOF

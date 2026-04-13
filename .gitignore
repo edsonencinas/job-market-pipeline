@@ -1,5 +1,15 @@
+.env
 venv/
 __pycache__/
 *.pyc
-.env
-data/*.csv
+*.parquet
+data/raw/
+data/clean/
+data/jobmarket.db
+logs/
+peek.py
+skill_check.py
+check_db.py
+check_remote.py
+test_load.py
+test_config.py
