@@ -73,39 +73,9 @@ CREATE TABLE IF NOT EXISTS job_skills (
 # Helpers
 # ─────────────────────────────────────────────────────────────
 def _ensure_tables(conn) -> None:
-    conn.execute(text("""
-        CREATE TABLE IF NOT EXISTS jobs (
-            id           INTEGER PRIMARY KEY AUTOINCREMENT,
-            source       TEXT NOT NULL,
-            external_id  TEXT NOT NULL,
-            title        TEXT,
-            company      TEXT,
-            city         TEXT,
-            region       TEXT,
-            country      TEXT,
-            is_remote    INTEGER DEFAULT 0,
-            salary_min   REAL,
-            salary_max   REAL,
-            salary_mid   REAL,
-            url          TEXT,
-            date_posted  TEXT,
-            scraped_at   TEXT NOT NULL DEFAULT (date('now')),
-            UNIQUE (source, external_id)
-        );
-    """))
-    conn.execute(text("""
-        CREATE TABLE IF NOT EXISTS skills (
-            id    INTEGER PRIMARY KEY AUTOINCREMENT,
-            name  TEXT UNIQUE NOT NULL
-        );
-    """))
-    conn.execute(text("""
-        CREATE TABLE IF NOT EXISTS job_skills (
-            job_id   INTEGER REFERENCES jobs(id)   ON DELETE CASCADE,
-            skill_id INTEGER REFERENCES skills(id) ON DELETE CASCADE,
-            PRIMARY KEY (job_id, skill_id)
-        );
-    """))
+    conn.execute(text(_CREATE_JOBS))
+    conn.execute(text(_CREATE_SKILLS))
+    conn.execute(text(_CREATE_JOB_SKILLS))
     conn.commit()
 
 def _upsert_job(conn, row: pd.Series) -> Optional[int]:
