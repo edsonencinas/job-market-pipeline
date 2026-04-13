@@ -130,7 +130,7 @@ def _get_or_create_skill(conn, name: str, cache: Dict[str, int]) -> int:
 
     # Insert if not exists
     conn.execute(
-        text("INSERT OR IGNORE INTO skills (name) VALUES (:n);"),
+        text("INSERT INTO skills (name) VALUES (:n) ON CONFLICT (name) DO NOTHING;"),
         {"n": name},
     )
 
