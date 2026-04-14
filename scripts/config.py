@@ -16,3 +16,6 @@ CLEAN_DIR: Path = Path("data/clean")
 
 RAW_DIR.mkdir(parents=True, exist_ok=True)
 CLEAN_DIR.mkdir(parents=True, exist_ok=True)
+
+RESEND_API_KEY: str = os.getenv("RESEND_API_KEY", "")
+EMAIL_RECEIVER: str = os.getenv("EMAIL_RECEIVER", "")

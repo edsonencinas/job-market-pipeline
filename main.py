@@ -51,6 +51,12 @@ def run_pipeline(mode: str = "full") -> None:
             from scripts.report import run as report_run
             report_run()
             log.info("   Report generated")
+        
+        if mode in ("full",):
+            log.info("▶ STAGE 5 — Alert")
+            from scripts.alert import check_and_alert
+            check_and_alert()
+            log.info("   Alert check complete")
 
         log.info("✔ Pipeline finished successfully")
 

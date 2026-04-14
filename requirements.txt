@@ -7,3 +7,4 @@ psycopg2-binary==2.9.9
 streamlit==1.28.0
 plotly==5.18.0
 schedule==1.2.1
+resend==0.7.0
