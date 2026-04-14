@@ -280,3 +280,7 @@ This project runs on Python 3.8. The following changes were made to ensure compa
 - **#1 skill**: Python
 - **Salary sweet spot**: $100K–$120K USD
 - **Remote jobs**: 11.3% of listings
+
+## Live Demo
+
+Live Dashboard | [job-market-pipeline.clawcloud.run](https://kdhddrhqrdtm.sg-members-1.clawcloudrun.com)
