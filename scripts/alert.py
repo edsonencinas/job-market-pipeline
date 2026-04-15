@@ -41,7 +41,6 @@ def _get_top_skills(since: str, limit: int = 10) -> List[str]:
         """), {"since": since, "limit": limit}).fetchall()
     return [r[0] for r in rows]
 
-
 # ─────────────────────────────────────────────────────────────
 # Email builder
 # ─────────────────────────────────────────────────────────────
@@ -87,7 +86,6 @@ def _build_email(new_skills: List[str], top_skills: List[str]) -> str:
     </html>
     """
 
-
 # ─────────────────────────────────────────────────────────────
 # Send email
 # ─────────────────────────────────────────────────────────────
@@ -112,7 +110,6 @@ def _send_email(subject: str, html_body: str) -> None:
 
     response = resend.Emails.send(params)
     log.info(f"Alert email sent — id: {response['id']}")
-
 
 # ─────────────────────────────────────────────────────────────
 # Public entry point
@@ -145,7 +142,6 @@ def check_and_alert() -> None:
         )
     else:
         log.info("No new trending skills today — no alert sent")
-
 
 if __name__ == "__main__":
     logging.basicConfig(level=logging.INFO)

@@ -283,4 +283,4 @@ This project runs on Python 3.8. The following changes were made to ensure compa
 
 ## Live Demo
 
-Live Dashboard | [job-market-pipeline.clawcloud.run](https://kdhddrhqrdtm.sg-members-1.clawcloudrun.com)
+Live Dashboard [job-market-pipeline.clawcloud.run](https://kdhddrhqrdtm.sg-members-1.clawcloudrun.com)

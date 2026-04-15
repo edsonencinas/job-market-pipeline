@@ -64,7 +64,6 @@ def run_pipeline(mode: str = "full") -> None:
         log.exception(f"✘ Pipeline failed: {exc}")
         sys.exit(1)
 
-
 if __name__ == "__main__":
     # ── Ensure log directory exists ────────────────────────────
     Path("logs").mkdir(exist_ok=True)
