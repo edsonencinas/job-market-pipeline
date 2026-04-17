@@ -14,6 +14,7 @@ import sys
 from datetime import date, timedelta
 from pathlib import Path
 from typing import Dict, List, Optional
+import math
 
 # Allow imports from project root
 sys.path.insert(0, str(Path(__file__).parent.parent))
@@ -113,9 +114,9 @@ def load_summary(since: str) -> Dict:
     with get_engine().connect() as conn:
         row = conn.execute(q, {"since": since}).fetchone()
     return {
-        "total_jobs": row[0] or 0,
-        "companies":  row[1] or 0,
-        "avg_salary": int(row[2] or 0),
+        "total_jobs": int(row[0] or 0),
+        "companies":  int(row[1] or 0),
+        "avg_salary": int(row[2]) if row[2] is not None and not math.isnan(float(row[2])) else 0,
         "remote_pct": round(row[3] / row[0] * 100, 1) if row[0] else 0,
     }
 
